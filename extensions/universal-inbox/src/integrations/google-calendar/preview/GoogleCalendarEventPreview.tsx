@@ -2,6 +2,7 @@ import { GoogleCalendarEvent, getEventStartDisplay, getMeetLink } from "../types
 import { getNotificationHtmlUrl, Notification } from "../../../notification";
 import { getThirdPartyItemSourceLabel } from "../../../third_party_item";
 import { Detail, ActionPanel, Action, Color } from "@raycast/api";
+import { formatDateTime } from "../../../utils";
 import { useMemo } from "react";
 
 interface GoogleCalendarEventPreviewProps {
@@ -13,7 +14,7 @@ export function GoogleCalendarEventPreview({ notification, event }: GoogleCalend
   const notificationHtmlUrl = useMemo(() => getNotificationHtmlUrl(notification), [notification]);
   const meetLink = getMeetLink(event);
 
-  const endDisplay = event.end.dateTime ? new Date(event.end.dateTime).toLocaleString() : (event.end.date ?? "");
+  const endDisplay = event.end.dateTime ? formatDateTime(event.end.dateTime) : (event.end.date ?? "");
 
   const attendeeLines = event.attendees
     .map((a) => {

@@ -1,3 +1,5 @@
+import { formatDateTime } from "../../utils";
+
 export interface EventDateTime {
   dateTime?: string;
   date?: string;
@@ -49,7 +51,7 @@ export function getGoogleCalendarEventHtmlUrl(event: GoogleCalendarEvent): strin
 
 export function getEventStartDisplay(event: GoogleCalendarEvent): string {
   if (event.start.dateTime) {
-    return new Date(event.start.dateTime).toLocaleString();
+    return formatDateTime(event.start.dateTime);
   }
   if (event.start.date) {
     return event.start.date;
