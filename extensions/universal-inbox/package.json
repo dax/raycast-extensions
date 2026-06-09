@@ -6,7 +6,9 @@
   "icon": "ui-logo-transparent.png",
   "author": "dax42",
   "version": "0.3.0",
-  "categories": ["Productivity"],
+  "categories": [
+    "Productivity"
+  ],
   "license": "MIT",
   "preferences": [
     {
@@ -61,5 +63,8 @@
     "fix-lint": "ray lint --fix",
     "lint": "ray lint",
     "publish": "npx @raycast/api@latest publish"
-  }
+  },
+  "platforms": [
+    "macOS"
+  ]
 }
